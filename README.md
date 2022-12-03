@@ -11,4 +11,5 @@ Discord Transport Tycoon Bot Made By Oxylad
  CHANNEL_ID = (id of the channel the bot will respond in)
  
 (If you somehow want to use part of my code feel free to use it but credit me @Oxylad#0994 on discord)
+
 ((My code will not be very commentated until i feel it is finished))

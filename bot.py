@@ -1,4 +1,4 @@
-import time, math, requests, discord
+import time, math, requests, discord, Paginator
 from discord import app_commands
 from discord.ext import commands
 from requests.structures import CaseInsensitiveDict
@@ -26,6 +26,7 @@ class MyClient(discord.Client):
         self.tree.copy_global_to(guild=MY_GUILD)
         await self.tree.sync(guild=MY_GUILD)
 
+
 headers = CaseInsensitiveDict()
 headers["X-Tycoon-Key"] = (key.key)
 url = "http://v1.api.tycoon.community/main/"
@@ -38,6 +39,8 @@ async def on_ready():
     #channel = bot.get_channel(CHANNEL_ID)
     #await channel.send("Hello World!")
     #print(f'We have logged in as {bot.user}')
+
+
 
 @bot.command(pass_context=True)
 async def kill(ctx):
@@ -93,7 +96,7 @@ async def streak(ctx):
 
 @bot.command()
 async def sotd(ctx):
-    """Gives your current login streak, streak record and total logged in days"""
+    
     
     embed_time= math.trunc(time.time())
     endpoint = f"/sotd.json"
@@ -107,7 +110,7 @@ async def sotd(ctx):
 
 @bot.command()
 async def wealth(ctx):
-    """Gives your current login streak, streak record and total logged in days"""
+    
     dc_id = ctx.author.id
     id_ep = f"snowflake2user/{dc_id}"
     ans_id = requests.get(url=url+id_ep, headers=headers).json()
@@ -126,6 +129,35 @@ async def wealth(ctx):
     wealth_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
     await ctx.send(embed=wealth_embed)
  
+@bot.command()
+async def stats(ctx):
+    
+    dc_id = ctx.author.id
+    id_ep = f"snowflake2user/{dc_id}"
+    ans_id = requests.get(url=url+id_ep, headers=headers).json()
+    userid = ans_id["user_id"]
+    
+    embed_time= math.trunc(time.time())
+    endpoint = f"stats/{userid}"
+    ans = requests.get(url=url+endpoint, headers=headers).json()
+    stats_embed1=discord.Embed(color=0x42c0ff)
+    stats_embed1.set_author(name="Your Game Stats")
+    n=0
+    while n < 25:
+        stats = ans["data"][n]["amount"]
+        stats_embed1.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=False)
+        n+=1
+   
+    stats_embed2=discord.Embed(color=0x42c0ff)
+    n=25
+    while n < 50:
+        stats = ans["data"][n]["amount"]
+        stats_embed2.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=False)
+        n+=1
+    stats_embed2.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+    embeds = [stats_embed1(title="First embed"),stats_embed2(title="Second embed")]
+    await Paginator.Simple().start(ctx, pages=embeds)
+
 
 
 @bot.tree.command() 

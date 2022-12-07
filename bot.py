@@ -1,7 +1,8 @@
-import time, math, requests, discord, Paginator
+import time, math, requests, discord
 from discord import app_commands
 from discord.ext import commands
 from requests.structures import CaseInsensitiveDict
+from reactionmenu import ViewMenu, ViewButton
 import key
 
 MY_GUILD = discord.Object(id=719546155649859654)
@@ -32,6 +33,10 @@ headers["X-Tycoon-Key"] = (key.key)
 url = "http://v1.api.tycoon.community/main/"
 
 bot = commands.Bot(command_prefix="??", intents=discord.Intents.all())
+
+
+
+
 
 @bot.event
 async def on_ready():
@@ -131,7 +136,7 @@ async def wealth(ctx):
  
 @bot.command()
 async def stats(ctx):
-    
+    menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed)
     dc_id = ctx.author.id
     id_ep = f"snowflake2user/{dc_id}"
     ans_id = requests.get(url=url+id_ep, headers=headers).json()
@@ -140,25 +145,31 @@ async def stats(ctx):
     embed_time= math.trunc(time.time())
     endpoint = f"stats/{userid}"
     ans = requests.get(url=url+endpoint, headers=headers).json()
+    
     stats_embed1=discord.Embed(color=0x42c0ff)
     stats_embed1.set_author(name="Your Game Stats")
     n=0
     while n < 25:
         stats = ans["data"][n]["amount"]
-        stats_embed1.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=False)
+        stats_embed1.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
         n+=1
-   
-    stats_embed2=discord.Embed(color=0x42c0ff)
+    stats_embed1.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+    menu.add_page(stats_embed1)
+
+    stats_embed2=discord.Embed(color=0x42c0ff)    
+    stats_embed2.set_author(name="Your Game Stats")
     n=25
-    while n < 50:
+    while n < 45:
         stats = ans["data"][n]["amount"]
         stats_embed2.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=False)
         n+=1
+
     stats_embed2.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
-    embeds = [stats_embed1(title="First embed"),stats_embed2(title="Second embed")]
-    await Paginator.Simple().start(ctx, pages=embeds)
-
-
+    menu.add_page(stats_embed2)
+    
+    menu.add_button(ViewButton.back())
+    menu.add_button(ViewButton.next())
+    await menu.start()
 
 @bot.tree.command() 
 @app_commands.describe(first_value='The first value you want to add something to',second_value='The value you want to add to the first value',)

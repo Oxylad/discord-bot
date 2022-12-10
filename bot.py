@@ -10,33 +10,16 @@ MY_GUILD = discord.Object(id=719546155649859654)
 class MyClient(discord.Client):
     def __init__(self, *, intents: discord.Intents):
         super().__init__(intents=intents)
-        # A CommandTree is a special type that holds all the application command
-        # state required to make it work. This is a separate class because it
-        # allows all the extra state to be opt-in.
-        # Whenever you want to work with application commands, your tree is used
-        # to store and work with them.
-        # Note: When using commands.Bot instead of discord.Client, the bot will
-        # maintain its own tree instead.
         self.tree = app_commands.CommandTree(self)
-
-    # In this basic example, we just synchronize the app commands to one guild.
-    # Instead of specifying a guild to every command, we copy over our global commands instead.
-    # By doing so, we don't have to wait up to an hour until they are shown to the end-user.
     async def setup_hook(self):
-        # This copies the global commands over to your guild.
         self.tree.copy_global_to(guild=MY_GUILD)
         await self.tree.sync(guild=MY_GUILD)
-
 
 headers = CaseInsensitiveDict()
 headers["X-Tycoon-Key"] = (key.key)
 url = "http://v1.api.tycoon.community/main/"
 
-bot = commands.Bot(command_prefix="??", intents=discord.Intents.all())
-
-
-
-
+bot = commands.Bot(command_prefix="??", intents=discord.Intents.all(), case_insesitive=True)
 
 @bot.event
 async def on_ready():
@@ -58,6 +41,27 @@ async def add(ctx, *arr):
     for i in arr:
         result += int(i)
     await ctx.send(result)
+
+@bot.command()
+async def help(ctx):
+    help_embed = discord.Embed()
+    help_embed.set_author(name="Help commands")
+    help_embed.add_field(name="help", value="show all commands this bot supports (this menu)")
+    help_embed.add_field(name="ping", value="pong")
+    help_embed.add_field(name="charges", value="")
+    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="", value="")
+    
+@bot.command()
+async def ping(ctx):
+    await ctx.send(f'Pong! {round(bot.latency * 1000)}')
 
 @bot.command()
 async def charges(ctx):

@@ -4,6 +4,8 @@ from discord.ext import commands
 from requests.structures import CaseInsensitiveDict
 from reactionmenu import ViewMenu, ViewButton
 import key
+from typing import Optional
+
 
 MY_GUILD = discord.Object(id=719546155649859654)
 
@@ -172,12 +174,12 @@ async def stats(ctx):
     menu.add_button(ViewButton.next())
     await menu.start()
 
+    
 '''
 @bot.tree.command()
-@app_commands.describe
-async def stats(ctx):
-    menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed)
-    dc_id = ctx.author.id
+async def stats(interaction: discord.Interaction):
+    menu = ViewMenu(menu_type=ViewMenu.TypeEmbed)
+    dc_id = interaction.user.id
     id_ep = f"snowflake2user/{dc_id}"
     ans_id = requests.get(url=url+id_ep, headers=headers).json()
     userid = ans_id["user_id"]
@@ -212,6 +214,7 @@ async def stats(ctx):
     menu.add_button(ViewButton.next())
     await menu.start()
 '''
+
 
 @bot.tree.command() 
 @app_commands.describe(first_value='The first value you want to add something to',second_value='The value you want to add to the first value',)

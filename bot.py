@@ -45,25 +45,20 @@ async def add(ctx, *arr):
     await ctx.send(result)
 
 @bot.command()
-async def help(ctx):
+async def helptt(ctx):
     help_embed = discord.Embed()
     help_embed.set_author(name="Help commands")
     help_embed.add_field(name="help", value="show all commands this bot supports (this menu)")
     help_embed.add_field(name="ping", value="pong")
-    help_embed.add_field(name="charges", value="")
-    help_embed.add_field(name="", value="")
-    help_embed.add_field(name="", value="")
-    help_embed.add_field(name="", value="")
-    help_embed.add_field(name="", value="")
-    help_embed.add_field(name="", value="")
-    help_embed.add_field(name="", value="")
-    help_embed.add_field(name="", value="")
-    help_embed.add_field(name="", value="")
-    help_embed.add_field(name="", value="")
+    help_embed.add_field(name="charges", value="show available charges on the key")
+    help_embed.add_field(name="streak", value="gives login streak")
+    help_embed.add_field(name="sotd", value="skill of the day")
+    help_embed.add_field(name="endpoints", value="available endpoints of the api")
+    await ctx.send(embed=help_embed)
     
 @bot.command()
 async def ping(ctx):
-    await ctx.send(f'Pong! {round(bot.latency * 1000)}')
+    await ctx.send(f'Pong! {round(bot.latency * 1000)}ms ping')
 
 @bot.command()
 async def charges(ctx):
@@ -73,9 +68,13 @@ async def charges(ctx):
 
 @bot.command()
 async def inv(ctx):
-    endpoint = f"data/{id}"
-    ans = requests.get(url=url+endpoint, headers=headers).json()
-    print(ans)
+    dc_id = ctx.author.id
+    id_ep = f"snowflake2user/{dc_id}"
+    ans_id = requests.get(url=url+id_ep, headers=headers).json()
+    userid = ans_id["user_id"]
+    
+    embed_time = math.trunc(time.time())
+    ans = requests.get(url=url+f"data/{userid}", headers=headers).json()
     await ctx.send(ans)
 
 @bot.command()
@@ -87,31 +86,27 @@ async def endpoints(ctx):
 
 @bot.command()
 async def streak(ctx):
-    """Gives your current login streak, streak record and total logged in days"""
     dc_id = ctx.author.id
     id_ep = f"snowflake2user/{dc_id}"
     ans_id = requests.get(url=url+id_ep, headers=headers).json()
     userid = ans_id["user_id"]
     
-    embed_time= math.trunc(time.time())
-    endpoint = f"streak/{userid}"
-    ans = requests.get(url=url+endpoint, headers=headers).json()
-    streak_embed=discord.Embed(color=0x42c0ff)
+    embed_time = math.trunc(time.time())
+    ans = requests.get(url=url+f"streak/{userid}", headers=headers).json()
+    
+    streak_embed = discord.Embed(color=0x42c0ff)
     streak_embed.set_author(name="Your streak data")
-    streak_embed.add_field(name="Your current' streak :", value=ans["data"]["streak"], inline=False)
-    streak_embed.add_field(name="Your streak record :", value=ans["data"]["record"], inline=False)
-    streak_embed.add_field(name="Total days logged in :", value=ans["data"]["days"], inline=False)
+    streak_embed.add_field(name="Current streak:", value=ans["data"]["streak"], inline=False)
+    streak_embed.add_field(name="Record streak:", value=ans["data"]["record"], inline=False)
+    streak_embed.add_field(name="Total days logged in:", value=ans["data"]["days"], inline=False)
     streak_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
     await ctx.send(embed=streak_embed)
 
 
 @bot.command()
 async def sotd(ctx):
-    
-    
     embed_time= math.trunc(time.time())
-    endpoint = f"/sotd.json"
-    ans = requests.get(url=url+endpoint, headers=headers).json()
+    ans = requests.get(url=url+f"/sotd.json", headers=headers).json()
     sotd_embed=discord.Embed(color=0x42c0ff)
     sotd_embed.set_author(name="Current SoTD")
     sotd_embed.add_field(name="The current Skill Of The Day is :", value=ans["skill"], inline=False)
@@ -178,7 +173,6 @@ async def stats(ctx):
     menu.add_button(ViewButton.next())
     await menu.start()
 
-    
 '''
 @bot.tree.command()
 async def stats(interaction: discord.Interaction):
@@ -218,7 +212,6 @@ async def stats(interaction: discord.Interaction):
     menu.add_button(ViewButton.next())
     await menu.start()
 '''
-
 
 @bot.tree.command() 
 @app_commands.describe(first_value='The first value you want to add something to',second_value='The value you want to add to the first value',)

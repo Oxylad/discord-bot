@@ -64,7 +64,15 @@ async def ping(ctx):
 async def charges(ctx):
     endpoint = "charges.json"
     ans = requests.get(url=url+endpoint, headers=headers).json()
-    await ctx.send(f"{ans[0]} charges left.")
+    
+    embed_time = math.trunc(time.time())
+
+    charge_embed = discord.Embed(color=0x42c0ff)
+    charge_embed.set_author(name="Remaining charges on key")
+    charge_embed.add_field(name="Charges remaining", value=f"{ans[0]}")
+    charge_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+    await ctx.send(embed=charge_embed)
+
 
 @bot.command()
 async def inv(ctx):
@@ -75,7 +83,8 @@ async def inv(ctx):
     
     embed_time = math.trunc(time.time())
     ans = requests.get(url=url+f"data/{userid}", headers=headers).json()
-    await ctx.send(ans)
+    print(ans)
+    await ctx.send(ans["data"])
 
 @bot.command()
 async def endpoints(ctx):

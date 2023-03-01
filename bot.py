@@ -1,9 +1,8 @@
-import time, math, requests, discord
+import time, math, requests, discord, datetime, key, asyncio, youtube_dl
 from discord import app_commands
 from discord.ext import commands
 from requests.structures import CaseInsensitiveDict
 from reactionmenu import ViewMenu, ViewButton
-import key
 from typing import Optional
 
 
@@ -13,9 +12,11 @@ class MyClient(discord.Client):
     def __init__(self, *, intents: discord.Intents):
         super().__init__(intents=intents)
         self.tree = app_commands.CommandTree(self)
+
     async def setup_hook(self):
         self.tree.copy_global_to(guild=MY_GUILD)
         await self.tree.sync(guild=MY_GUILD)
+
 
 headers = CaseInsensitiveDict()
 headers["X-Tycoon-Key"] = (key.key)
@@ -26,9 +27,12 @@ bot = commands.Bot(command_prefix="??", intents=discord.Intents.all(), case_inse
 @bot.event
 async def on_ready():
     print("Hello World!")
-    #channel = bot.get_channel(CHANNEL_ID)
-    #await channel.send("Hello World!")
-    #print(f'We have logged in as {bot.user}')
+
+#change to slash command
+@bot.command()
+async def sendinchannel(ctx, channel: int, *, msg):
+    await bot.get_channel(channel).send(msg)
+    await ctx.send("Message sent!")
 
 
 
@@ -45,6 +49,27 @@ async def add(ctx, *arr):
     await ctx.send(result)
 
 @bot.command()
+async def bee_movie(ctx):
+        debut = datetime.time()
+        with open("bee_movie_script.txt", "r") as f:
+            for line in f:
+                await ctx.send(line)
+                await asyncio.sleep(0.2)  # delay for 0.5 seconds
+            fin = datetime.time()
+            print_time = fin - debut
+            await ctx.reply(f"This is the whole script for Bee Movie, as you requested. This took +{print_time} seconds",mention_author=True)
+
+@bot.command()
+async def testcmd(ctx):
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    await ctx.send("Current Time =", current_time)
+    
+@bot.command()
+async def send_msg(channel: discord.channel, message):
+    await channel.send(message)
+
+@bot.command()
 async def helptt(ctx):
     help_embed = discord.Embed()
     help_embed.set_author(name="Help commands")
@@ -56,6 +81,13 @@ async def helptt(ctx):
     help_embed.add_field(name="endpoints", value="available endpoints of the api")
     await ctx.send(embed=help_embed)
     
+
+@bot.command()
+async def debug(ctx, endpoint):
+    ans = requests.get(url=url+endpoint, headers=headers).json()
+    
+    await ctx.send(ans["data"]["groups"])
+
 @bot.command()
 async def ping(ctx):
     await ctx.send(f'Pong! {round(bot.latency * 1000)}ms ping')
@@ -111,16 +143,12 @@ async def streak(ctx):
     streak_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
     await ctx.send(embed=streak_embed)
 
-
 @bot.command()
 async def sotd(ctx):
     embed_time= math.trunc(time.time())
     ans = requests.get(url=url+f"/sotd.json", headers=headers).json()
     sotd_embed=discord.Embed(color=0x42c0ff)
-    sotd_embed.set_author(name="Current SoTD")
-    sotd_embed.add_field(name="The current Skill Of The Day is :", value=ans["skill"], inline=False)
-    sotd_embed.add_field(name="The bonus is :", value=ans["bonus"], inline=False)
-    sotd_embed.add_field(name="message sent", value=f"<t:{embed_time}:R>")
+    sotd_embed.add_field(name="\n Current SoTD:", value="The skill of the day is "+str(ans["bonus"])+"%  "+ str(ans["skill"])+ "\n\n"+f"<t:{embed_time}:R>", inline=False)
     await ctx.send(embed=sotd_embed)
 
 @bot.command()
@@ -134,8 +162,11 @@ async def wealth(ctx):
     embed_time= math.trunc(time.time())
     endpoint = f"wealth/{userid}"
     ans = requests.get(url=url+endpoint, headers=headers).json()
-    wallet = ans["wallet"]
-    bank = ans["bank"]
+    try:
+        wallet = ans["wallet"]
+        bank = ans["bank"]
+    except KeyError:
+        await ctx.send("player is offline")
     wealth_embed=discord.Embed(color=0x42c0ff)
     wealth_embed.set_author(name="Your Wealth Data")
     wealth_embed.add_field(name="Wallet Balance :", value=f"{wallet:,}", inline=False)
@@ -182,6 +213,57 @@ async def stats(ctx):
     menu.add_button(ViewButton.next())
     await menu.start()
 
+
+
+@bot.command()
+async def play(ctx):
+    queue = asyncio.Queue()
+    global voice_client
+    voice_client = None
+    channel = ctx.author.voice.channel
+    if voice_client is None:
+        voice_client = await channel.connect()
+        await ctx.channel.send("Bot has been connected to your voice channel")
+    elif voice_client.channel != channel:
+        await voice_client.move_to(channel)
+
+    async def play_next(voice):
+        song_url = await queue.get()
+        source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(song_url))
+        voice.play(source, after=lambda e: queue.task_done())
+
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
+    }
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(ctx.message.content.split()[1], download=True)
+        url = info['url']
+        song_name = info['title']
+
+    await queue.put(url)
+    if queue.empty():
+        await play_next(voice_client)
+        await ctx.channel.send('Now playing {}'.format(song_name))
+
+@bot.command()
+async def disconnect(ctx):
+    await ctx.voice_client.disconnect()
+    await ctx.channel.send("")
+
+@bot.command()
+async def pause(ctx):
+    await ctx.voice_client.pause()
+    await ctx.send("Paused")
+
+@bot.command()
+async def resume(ctx):
+    await ctx.voice_client.resume()
+    await ctx.send("Resumed")
 '''
 @bot.tree.command()
 async def stats(interaction: discord.Interaction):
@@ -226,6 +308,12 @@ async def stats(interaction: discord.Interaction):
 @app_commands.describe(first_value='The first value you want to add something to',second_value='The value you want to add to the first value',)
 async def add(interaction: discord.interactions, first_value: int, second_value: int ): 
     await interaction.response.send_message(f'{first_value:,} + {second_value:,} = {first_value + second_value:,}')
+
+@bot.tree.command()
+@app_commands.describe(channel='the channel', msg='the message')
+async def sendinchannel(interaction: discord.interactions, channel: int, msg: str):
+    await bot.get_channel(channel).send(msg)
+    await interaction.response.send_message("Message sent!")
 
 
 bot.run(key.BOT_TOKEN)

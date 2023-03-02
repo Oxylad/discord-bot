@@ -4,7 +4,7 @@ from typing import Optional
 import discord
 from discord import app_commands
 
-token = "ODIxMDY3OTY1NTYyNzQ4OTYx.GGU6zG.xeG6JE805g725q0V496INlZiAQ4llUIk-J6vPU"
+token = "ODIxMDY3OTY1NTYyNzQ4OTYx.GNQbyy.VW8vYerSqjN0pNPr5qp9udYC6G0lf4MK8Ka0Tk"
 MY_GUILD = discord.Object(id=719546155649859654)  # replace with your guild id
 
 
@@ -23,7 +23,7 @@ class MyClient(discord.Client):
     # In this basic example, we just synchronize the app commands to one guild.
     # Instead of specifying a guild to every command, we copy over our global commands instead.
     # By doing so, we don't have to wait up to an hour until they are shown to the end-user.
-    async def setup_hook(self):
+    async def on_ready(self):
         # This copies the global commands over to your guild.
         self.tree.copy_global_to(guild=MY_GUILD)
         await self.tree.sync(guild=MY_GUILD)
@@ -114,5 +114,5 @@ async def report_message(interaction: discord.Interaction, message: discord.Mess
     await log_channel.send(embed=embed, view=url_view)
 
 
-client.run('ODIxMDY3OTY1NTYyNzQ4OTYx.GGU6zG.xeG6JE805g725q0V496INlZiAQ4llUIk-J6vPU')
+client.run(token)
 

@@ -18,6 +18,9 @@ class MyClient(discord.Client):
         await self.tree.sync(guild=MY_GUILD)
 
 
+intents = discord.Intents.default()
+bot = MyClient(intents=intents)
+
 headers = CaseInsensitiveDict()
 headers["X-Tycoon-Key"] = (key.key)
 url = "http://v1.api.tycoon.community/main/"
@@ -33,7 +36,6 @@ async def on_ready():
 async def sendinchannel(ctx, channel: int, *, msg):
     await bot.get_channel(channel).send(msg)
     await ctx.send("Message sent!")
-
 
 
 @bot.command(pass_context=True)

@@ -136,11 +136,7 @@ async def streak(ctx):
     ans = requests.get(url=url+f"streak/{userid}", headers=headers).json()
     
     streak_embed = discord.Embed(color=0x42c0ff)
-    streak_embed.set_author(name="Your streak data")
-    streak_embed.add_field(name="Current streak:", value=ans["data"]["streak"], inline=False)
-    streak_embed.add_field(name="Record streak:", value=ans["data"]["record"], inline=False)
-    streak_embed.add_field(name="Total days logged in:", value=ans["data"]["days"], inline=False)
-    streak_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+    streak_embed.add_field(name="**Your streak data**", value="**Current streak: **"+str(ans["data"]["streak"])+"\n **Record streak: **"+ str(ans["data"]["record"])+ "\n **Total days logged in: **"+str(ans["data"]["days"])+"\n\n"+f"<t:{embed_time}:R>", inline=False)
     await ctx.send(embed=streak_embed)
 
 @bot.command()
@@ -286,7 +282,7 @@ async def stats(interaction: discord.Interaction):
         stats = ans["data"][n]["amount"]
         stats_embed1.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
         n+=1
-    stats_embed1.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+    stats_embed1.add_field(name="u200b", value=f"<t:{embed_time}:R>")
     menu.add_page(stats_embed1)
 
     stats_embed2=discord.Embed(color=0x42c0ff)    
@@ -296,7 +292,7 @@ async def stats(interaction: discord.Interaction):
         stats_embed2.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
         n+=1
         
-    stats_embed2.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+    stats_embed2.add_field(name="u200b", value=f"<t:{embed_time}:R>")
     menu.add_page(stats_embed2)
     
     menu.add_button(ViewButton.back())

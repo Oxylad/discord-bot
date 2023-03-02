@@ -56,8 +56,8 @@ async def add(interaction: discord.Interaction, first_value: int, second_value: 
 
 
 # The rename decorator allows us to change the display of the parameter on Discord.
-# In this example, even though we use `text_to_send` in the code, the client will use `text` instead.
-# Note that other decorators will still refer to it as `text_to_send` in the code.
+# In this example, even though we use `text_to_send` in the code, the client will use g`text` instead.
+# Note that other decorators will still refer to it as `text_to_send` in the code.s
 @client.tree.command()
 @app_commands.rename(text_to_send='text')
 @app_commands.describe(text_to_send='Text to send in the current channel')

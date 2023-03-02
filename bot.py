@@ -261,45 +261,10 @@ async def pause(ctx):
 async def resume(ctx):
     await ctx.voice_client.resume()
     await ctx.send("Resumed")
-'''
-@bot.tree.command()
-async def stats(interaction: discord.Interaction):
-    menu = ViewMenu(menu_type=ViewMenu.TypeEmbed)
-    dc_id = interaction.user.id
-    id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=url+id_ep, headers=headers).json()
-    userid = ans_id["user_id"]
-    
-    embed_time= math.trunc(time.time())
-    endpoint = f"stats/{userid}"
-    ans = requests.get(url=url+endpoint, headers=headers).json()
-    
-    stats_embed1=discord.Embed(color=0x42c0ff)
-    stats_embed1.set_author(name="Your Game Stats")
-    lenstats = len(ans["data"])
 
-    n=0
-    while n < 24:
-        stats = ans["data"][n]["amount"]
-        stats_embed1.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
-        n+=1
-    stats_embed1.add_field(name="u200b", value=f"<t:{embed_time}:R>")
-    menu.add_page(stats_embed1)
 
-    stats_embed2=discord.Embed(color=0x42c0ff)    
-    stats_embed2.set_author(name="Your Game Stats")
-    while n < lenstats:
-        stats = ans["data"][n]["amount"]
-        stats_embed2.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
-        n+=1
-        
-    stats_embed2.add_field(name="u200b", value=f"<t:{embed_time}:R>")
-    menu.add_page(stats_embed2)
-    
-    menu.add_button(ViewButton.back())
-    menu.add_button(ViewButton.next())
-    await menu.start()
-'''
+
+### SLASH COMMANDS UNDER HERE ###
 
 @bot.tree.command() 
 @app_commands.describe(first_value='The first value you want to add something to',second_value='The value you want to add to the first value',)

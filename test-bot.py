@@ -3,8 +3,8 @@ from typing import Optional
 
 import discord
 from discord import app_commands
+import key
 
-token = "ODIxMDY3OTY1NTYyNzQ4OTYx.GNQbyy.VW8vYerSqjN0pNPr5qp9udYC6G0lf4MK8Ka0Tk"
 MY_GUILD = discord.Object(id=719546155649859654)  # replace with your guild id
 
 
@@ -114,5 +114,4 @@ async def report_message(interaction: discord.Interaction, message: discord.Mess
     await log_channel.send(embed=embed, view=url_view)
 
 
-client.run(token)
-
+client.run(key.BOT_TOKEN)

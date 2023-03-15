@@ -10,4 +10,4 @@ def tri_selection(tab):
 
 print("\U0001f5ff")        
         
-print(tri_selection([41, 55, 21, 18, 12, 6, 25]))
+print(tri_selection([41, 55, 21, 18, 12, 6, 6, 25]))

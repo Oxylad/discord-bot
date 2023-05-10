@@ -5,6 +5,7 @@ from requests.structures import CaseInsensitiveDict
 from reactionmenu import ViewMenu, ViewButton
 from typing import Optional
 datafile = open("data.json", "a+")
+textfile = open("text.txt","a+")
 
 
 MY_GUILD = discord.Object(id=719546155649859654)
@@ -26,7 +27,7 @@ headers = CaseInsensitiveDict()
 headers["X-Tycoon-Key"] = (key.key)
 url = "http://v1.api.tycoon.community/main/"
 
-bot = commands.Bot(command_prefix="??", intents=discord.Intents.all(), case_insesitive=True)
+bot = commands.Bot(command_prefix=">", intents=discord.Intents.all(), case_insesitive=True)
 
 @bot.event
 async def on_ready():
@@ -76,8 +77,8 @@ async def send_msg(channel: discord.channel, message):
 async def helptt(ctx):
     help_embed = discord.Embed()
     help_embed.set_author(name="Help commands")
-    help_embed.add_field(name="help", value="show all commands this bot supports (this menu)")
-    help_embed.add_field(name="dataadv", value="sends back text file with all advanced data (JSON format) ")
+    help_embed.add_field(name="helptt", value="show all commands this bot supports (this menu)")
+    help_embed.add_field(name="debug", value="sends back text file with all advanced data (JSON format) ")
     help_embed.add_field(name="ping", value="pong")
     help_embed.add_field(name="charges", value="show available charges on the key")
     help_embed.add_field(name="streak", value="gives login streak")
@@ -89,9 +90,12 @@ async def helptt(ctx):
 @bot.command()
 async def debug(ctx, endpoint):
     ans = requests.get(url=url+endpoint, headers=headers).json()
-    
-    datafile.write(json.dumps(ans, sort_keys=True, indent=4))
-    await ctx.send(ans)
+    with open("text.txt", "w") as file:
+        textfile.write(json.dumps(ans, sort_keys=True, indent=4))
+
+    with open("text.txt", "rb") as file:
+        await ctx.send("Your file is:", file=discord.File(file, "text.txt"))
+
 
 @bot.command()
 async def ping(ctx):
@@ -104,7 +108,7 @@ async def charges(ctx):
     
     embed_time = math.trunc(time.time())
 
-    charge_embed = discord.Embed(color=0x42c0ff)
+    charge_embed = discord.Embed(color=0x2c2c34)
     charge_embed.set_author(name="Remaining charges on key")
     charge_embed.add_field(name="Charges remaining", value=f"{ans[0]}")
     charge_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
@@ -119,12 +123,8 @@ async def skills(ctx):
 
     embed_time = math.trunc(time.time())
 
-    wealth_embed=discord.Embed(color=0x42c0ff)
-    wealth_embed.set_author(name="Your Skills Data")
-    wealth_embed.add_field(name="Wallet Balance :", value=f"{wallet:,}", inline=False)
-    wealth_embed.add_field(name="Bank Balance :", value=f"{bank:,}", inline=False)
-    wealth_embed.add_field(name="Total Balance :", value=f"{wallet+bank:,}", inline=False)
-    wealth_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+
+    await ctx.send("command is WIP")
 
     
 
@@ -157,7 +157,7 @@ async def streak(ctx):
     embed_time = math.trunc(time.time())
     ans = requests.get(url=url+f"streak/{userid}", headers=headers).json()
     
-    streak_embed = discord.Embed(color=0x42c0ff)
+    streak_embed = discord.Embed(color=0x2c2c34)
     streak_embed.add_field(name="**Your streak data**", value="**Current streak: **"+str(ans["data"]["streak"])+"\n **Record streak: **"+ str(ans["data"]["record"])+ "\n **Total days logged in: **"+str(ans["data"]["days"])+"\n\n"+f"<t:{embed_time}:R>", inline=False)
     await ctx.send(embed=streak_embed)
 
@@ -165,7 +165,7 @@ async def streak(ctx):
 async def sotd(ctx):
     embed_time= math.trunc(time.time())
     ans = requests.get(url=url+f"/sotd.json", headers=headers).json()
-    sotd_embed=discord.Embed(color=0x42c0ff)
+    sotd_embed=discord.Embed(color=0x2c2c34)
     sotd_embed.add_field(name="\n Current SoTD:", value="The skill of the day is "+str(ans["bonus"])+"%  "+ str(ans["skill"])+ "\n\n"+f"<t:{embed_time}:R>", inline=False)
     await ctx.send(embed=sotd_embed)
 
@@ -185,7 +185,7 @@ async def wealth(ctx):
         bank = ans["bank"]
     except KeyError:
         await ctx.send("player is offline")
-    wealth_embed=discord.Embed(color=0x42c0ff)
+    wealth_embed=discord.Embed(color=0x2c2c34)
     wealth_embed.set_author(name="Your Wealth Data")
     wealth_embed.add_field(name="Wallet Balance :", value=f"{wallet:,}", inline=False)
     wealth_embed.add_field(name="Bank Balance :", value=f"{bank:,}", inline=False)
@@ -205,7 +205,7 @@ async def stats(ctx):
     endpoint = f"stats/{userid}"
     ans = requests.get(url=url+endpoint, headers=headers).json()
     
-    stats_embed1=discord.Embed(color=0x42c0ff)
+    stats_embed1=discord.Embed(color=0x2c2c34)
     stats_embed1.set_author(name="Your Game Stats")
     lenstats = len(ans["data"])
 
@@ -217,7 +217,7 @@ async def stats(ctx):
     stats_embed1.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
     menu.add_page(stats_embed1)
 
-    stats_embed2=discord.Embed(color=0x42c0ff)    
+    stats_embed2=discord.Embed(color=0x2c2c34)    
     stats_embed2.set_author(name="Your Game Stats")
     while n < lenstats:
         stats = ans["data"][n]["amount"]

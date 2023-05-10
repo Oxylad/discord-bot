@@ -1,965 +1,952 @@
 {
+    "code": "200",
     "data": {
-      "position": {
-        "h": 91.9,
-        "x": 1040.1,
-        "y": -3204.2,
-        "z": -38.1
-      },
-      "chat_title": "1MCONDUCTOR2",
-      "inventory": {
-        "pills": {
-          "amount": 402
+        "AcceptingPlayerEms": true,
+        "chat_prefix": "RP1_DRAGON",
+        "chat_title": "1MCONDUCTOR2",
+        "cloakroom_idle": {
+            "0": [
+                44,
+                0,
+                0
+            ],
+            "1": [
+                129,
+                10,
+                0
+            ],
+            "10": [
+                4,
+                0,
+                0
+            ],
+            "11": [
+                15,
+                0,
+                0
+            ],
+            "12": [
+                0,
+                0,
+                0
+            ],
+            "13": [
+                0,
+                0,
+                0
+            ],
+            "14": [
+                0,
+                2,
+                255
+            ],
+            "15": [
+                2560,
+                0,
+                110
+            ],
+            "16": [
+                0,
+                0,
+                255
+            ],
+            "17": [
+                256,
+                0,
+                255
+            ],
+            "18": [
+                131072,
+                0,
+                255
+            ],
+            "19": [
+                33554432,
+                2,
+                255
+            ],
+            "2": [
+                0,
+                0,
+                2,
+                0,
+                0
+            ],
+            "20": [
+                0,
+                0,
+                255
+            ],
+            "3": [
+                179,
+                0,
+                0
+            ],
+            "4": [
+                11,
+                0,
+                0
+            ],
+            "5": [
+                32,
+                0,
+                0
+            ],
+            "6": [
+                72,
+                0,
+                0
+            ],
+            "7": [
+                0,
+                0,
+                2
+            ],
+            "8": [
+                0,
+                0,
+                0
+            ],
+            "9": [
+                10,
+                1,
+                0
+            ],
+            "h0": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h1": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h10": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h11": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h12": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h2": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h3": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h4": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h5": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h6": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h7": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h8": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h9": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "modelhash": 1885233650,
+            "p0": [
+                -1,
+                0
+            ],
+            "p1": [
+                -1,
+                0
+            ],
+            "p10": [
+                -1,
+                0
+            ],
+            "p2": [
+                -1,
+                0
+            ],
+            "p3": [
+                -1,
+                0
+            ],
+            "p4": [
+                -1,
+                0
+            ],
+            "p5": [
+                -1,
+                0
+            ],
+            "p6": [
+                -1,
+                0
+            ],
+            "p7": [
+                -1,
+                0
+            ],
+            "p8": [
+                -1,
+                0
+            ],
+            "p9": [
+                -1,
+                0
+            ]
         },
-        "hide_wolf": {
-          "amount": 5
+        "current_loan": "loan_insane",
+        "customization": {
+            "0": [
+                44,
+                0,
+                0
+            ],
+            "1": [
+                129,
+                10,
+                0
+            ],
+            "10": [
+                4,
+                0,
+                0
+            ],
+            "11": [
+                15,
+                0,
+                0
+            ],
+            "12": [
+                0,
+                0,
+                0
+            ],
+            "13": [
+                0,
+                0,
+                0
+            ],
+            "14": [
+                0,
+                2,
+                255
+            ],
+            "15": [
+                2560,
+                0,
+                110
+            ],
+            "16": [
+                0,
+                0,
+                255
+            ],
+            "17": [
+                256,
+                0,
+                255
+            ],
+            "18": [
+                131072,
+                0,
+                255
+            ],
+            "19": [
+                33554432,
+                2,
+                255
+            ],
+            "2": [
+                0,
+                0,
+                2,
+                0,
+                0
+            ],
+            "20": [
+                0,
+                0,
+                255
+            ],
+            "3": [
+                179,
+                0,
+                0
+            ],
+            "4": [
+                11,
+                0,
+                0
+            ],
+            "5": [
+                32,
+                0,
+                0
+            ],
+            "6": [
+                72,
+                0,
+                0
+            ],
+            "7": [
+                0,
+                0,
+                2
+            ],
+            "8": [
+                0,
+                0,
+                0
+            ],
+            "9": [
+                10,
+                1,
+                0
+            ],
+            "h0": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h1": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h10": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h11": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h12": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h2": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h3": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h4": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h5": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h6": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h7": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h8": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "h9": [
+                255,
+                0,
+                0,
+                0,
+                1.0
+            ],
+            "modelhash": 1885233650,
+            "p0": [
+                -1,
+                0
+            ],
+            "p1": [
+                -1,
+                0
+            ],
+            "p10": [
+                -1,
+                0
+            ],
+            "p2": [
+                -1,
+                0
+            ],
+            "p3": [
+                -1,
+                0
+            ],
+            "p4": [
+                -1,
+                0
+            ],
+            "p5": [
+                -1,
+                0
+            ],
+            "p6": [
+                -1,
+                0
+            ],
+            "p7": [
+                -1,
+                0
+            ],
+            "p8": [
+                -1,
+                0
+            ],
+            "p9": [
+                -1,
+                0
+            ]
         },
-        "chest_daily": {
-          "amount": 1
+        "gaptitudes": {
+            "business": {
+                "business": 25250
+            },
+            "casino": {
+                "casino": 25250
+            },
+            "ems": {
+                "ems": 25250,
+                "fire": 25250
+            },
+            "farming": {
+                "farming": 25250,
+                "fishing": 25250,
+                "mining": 25250
+            },
+            "hunting": {
+                "skill": 25250
+            },
+            "physical": {
+                "strength": 2325
+            },
+            "piloting": {
+                "cargos": 25250,
+                "heli": 25250,
+                "piloting": 25250
+            },
+            "player": {
+                "player": 25250,
+                "racing": 25250
+            },
+            "train": {
+                "bus": 25250,
+                "train": 25250
+            },
+            "trucking": {
+                "garbage": 25250,
+                "mechanic": 25250,
+                "postop": 25250,
+                "trucking": 25250
+            }
         },
-        "exp_token_a|trucking|postop": {
-          "amount": 352
+        "gaptitudes_v": {
+            "business": {
+                "business": 4474262.790000037
+            },
+            "casino": {
+                "casino": 27207.95599999999
+            },
+            "ems": {
+                "ems": 38933.676,
+                "fire": 58028.259999999944
+            },
+            "farming": {
+                "farming": 57541.7189999999,
+                "fishing": 36183.069999998756,
+                "mining": 1013926.6420000036
+            },
+            "hunting": {
+                "skill": 116441.67199999969
+            },
+            "physical": {
+                "strength": 1867518.016000027
+            },
+            "piloting": {
+                "cargos": 223920.331000003,
+                "heli": 31200.963000000036,
+                "piloting": 27950.36200000001
+            },
+            "player": {
+                "player": 2056123.2839996144,
+                "racing": 67638.75899999993
+            },
+            "train": {
+                "bus": 32118.979000000083,
+                "train": 1010856.5479999982
+            },
+            "trucking": {
+                "garbage": 30837.831000000013,
+                "mechanic": 47323.85999999999,
+                "postop": 89315.99800000004,
+                "trucking": 1741596.8319996549
+            }
         },
-        "chest_key_master": {
-          "amount": 1
+        "groups": {
+            "biz_satn": true,
+            "ch_title": true,
+            "chat.prefix.biz_bahama_mamas": true,
+            "chat.prefix.biz_catfish": true,
+            "chat.prefix.biz_chiliad_base": true,
+            "chat.prefix.biz_cluckingbell_co": true,
+            "chat.prefix.biz_dp_pier.1": true,
+            "chat.prefix.biz_dp_pier.2": true,
+            "chat.prefix.biz_granny": true,
+            "chat.prefix.biz_lsia": true,
+            "chat.prefix.biz_murrietta_oil": true,
+            "chat.prefix.biz_oilrig": true,
+            "chat.prefix.biz_pbcc": true,
+            "chat.prefix.biz_stay_frosty": true,
+            "chat.prefix.biz_stripclub": true,
+            "chat.prefix.biz_uginc_gs": true,
+            "chat.prefix.biz_zancudo": true,
+            "chat.prefix.rp1.baby_chick": true,
+            "chat.prefix.rp1.badger": true,
+            "chat.prefix.rp1.bat": true,
+            "chat.prefix.rp1.bear": true,
+            "chat.prefix.rp1.bird": true,
+            "chat.prefix.rp1.blossom": true,
+            "chat.prefix.rp1.blowfish": true,
+            "chat.prefix.rp1.boar": true,
+            "chat.prefix.rp1.bug": true,
+            "chat.prefix.rp1.cactus": true,
+            "chat.prefix.rp1.cat_face": true,
+            "chat.prefix.rp1.chicken": true,
+            "chat.prefix.rp1.cow": true,
+            "chat.prefix.rp1.cow_face": true,
+            "chat.prefix.rp1.crab": true,
+            "chat.prefix.rp1.crescent_moon": true,
+            "chat.prefix.rp1.dashing_away": true,
+            "chat.prefix.rp1.deciduous_tree": true,
+            "chat.prefix.rp1.deer": true,
+            "chat.prefix.rp1.dog_face": true,
+            "chat.prefix.rp1.dolphin": true,
+            "chat.prefix.rp1.dragon": true,
+            "chat.prefix.rp1.eagle": true,
+            "chat.prefix.rp1.elephant": true,
+            "chat.prefix.rp1.evergreen_tree": true,
+            "chat.prefix.rp1.fallen_leaf": true,
+            "chat.prefix.rp1.fire": true,
+            "chat.prefix.rp1.first_quarter_moon_face": true,
+            "chat.prefix.rp1.four_leaf_clover": true,
+            "chat.prefix.rp1.front-facing_baby_chick": true,
+            "chat.prefix.rp1.full_moon": true,
+            "chat.prefix.rp1.giraffe": true,
+            "chat.prefix.rp1.glowing_star": true,
+            "chat.prefix.rp1.goat": true,
+            "chat.prefix.rp1.hatching_chick": true,
+            "chat.prefix.rp1.herb": true,
+            "chat.prefix.rp1.hibiscus": true,
+            "chat.prefix.rp1.horse": true,
+            "chat.prefix.rp1.kangaroo": true,
+            "chat.prefix.rp1.lady_beetle": true,
+            "chat.prefix.rp1.last_quarter_moon_face": true,
+            "chat.prefix.rp1.leaf_fluttering_in_wind": true,
+            "chat.prefix.rp1.lizard": true,
+            "chat.prefix.rp1.maple_leaf": true,
+            "chat.prefix.rp1.monkey": true,
+            "chat.prefix.rp1.monkey_face": true,
+            "chat.prefix.rp1.mosquito": true,
+            "chat.prefix.rp1.new_moon": true,
+            "chat.prefix.rp1.new_moon_face": true,
+            "chat.prefix.rp1.octopus": true,
+            "chat.prefix.rp1.owl": true,
+            "chat.prefix.rp1.ox": true,
+            "chat.prefix.rp1.palm_tree": true,
+            "chat.prefix.rp1.parrot": true,
+            "chat.prefix.rp1.paw_prints": true,
+            "chat.prefix.rp1.peacock": true,
+            "chat.prefix.rp1.penguin": true,
+            "chat.prefix.rp1.pig_face": true,
+            "chat.prefix.rp1.pine_decoration": true,
+            "chat.prefix.rp1.rabbit": true,
+            "chat.prefix.rp1.rabbit_face": true,
+            "chat.prefix.rp1.rainbow": true,
+            "chat.prefix.rp1.ram": true,
+            "chat.prefix.rp1.rat": true,
+            "chat.prefix.rp1.rhinoceros": true,
+            "chat.prefix.rp1.rooster": true,
+            "chat.prefix.rp1.rose": true,
+            "chat.prefix.rp1.seedling": true,
+            "chat.prefix.rp1.sheaf_of_rice": true,
+            "chat.prefix.rp1.shooting_star": true,
+            "chat.prefix.rp1.snail": true,
+            "chat.prefix.rp1.snake": true,
+            "chat.prefix.rp1.spiral_shell": true,
+            "chat.prefix.rp1.spouting_whale": true,
+            "chat.prefix.rp1.squid": true,
+            "chat.prefix.rp1.sun_with_face": true,
+            "chat.prefix.rp1.sunflower": true,
+            "chat.prefix.rp1.swan": true,
+            "chat.prefix.rp1.sweat_droplets": true,
+            "chat.prefix.rp1.t-rex": true,
+            "chat.prefix.rp1.tanabata_tree": true,
+            "chat.prefix.rp1.tiger_face": true,
+            "chat.prefix.rp1.tropical_fish": true,
+            "chat.prefix.rp1.turkey": true,
+            "chat.prefix.rp1.unicorn": true,
+            "chat.prefix.rp1.waning_crescent_moon": true,
+            "chat.prefix.rp1.waning_gibbous_moon": true,
+            "chat.prefix.rp1.water_buffalo": true,
+            "chat.prefix.rp1.water_wave": true,
+            "chat.prefix.rp1.waxing_crescent_moon": true,
+            "chat.prefix.rp1.whale": true,
+            "chat.prefix.rp1.white_flower": true,
+            "chat.prefix.rp1.wilted_flower": true,
+            "chat.prefix.rp2.airing_of_grievances": true,
+            "chat.prefix.rp2.calendar": true,
+            "chat.prefix.rp2.clapping_hands": true,
+            "chat.prefix.rp2.deciduous_tree": true,
+            "chat.prefix.rp2.dizzy": true,
+            "chat.prefix.rp2.dizzy_face": true,
+            "chat.prefix.rp2.droplet": true,
+            "chat.prefix.rp2.face_with_thermometer": true,
+            "chat.prefix.rp2.feats_of_strength": true,
+            "chat.prefix.rp2.four_leaf_clover": true,
+            "chat.prefix.rp2.globe_with_meridians": true,
+            "chat.prefix.rp2.hand_with_fingers_splayed": true,
+            "chat.prefix.rp2.hedgehog": true,
+            "chat.prefix.rp2.honeybee": true,
+            "chat.prefix.rp2.hospital": true,
+            "chat.prefix.rp2.lotion_bottle": true,
+            "chat.prefix.rp2.microbe": true,
+            "chat.prefix.rp2.pager": true,
+            "chat.prefix.rp2.palms_up_together": true,
+            "chat.prefix.rp2.pill": true,
+            "chat.prefix.rp2.potable_water": true,
+            "chat.prefix.rp2.rabbit": true,
+            "chat.prefix.rp2.rainbow": true,
+            "chat.prefix.rp2.seedling": true,
+            "chat.prefix.rp2.sheaf_of_rice": true,
+            "chat.prefix.rp2.soap": true,
+            "chat.prefix.rp2.sun_with_face": true,
+            "chat.prefix.rp2.sunflower": true,
+            "chat.prefix.rp2.swan": true,
+            "chat.prefix.rp2.syringe": true,
+            "chat.prefix.rp2.tulip": true,
+            "chat.prefix.rp2.world_map": true,
+            "chat.prefix.rp3.carrot": true,
+            "chat.prefix.rp3.cherry": true,
+            "chat.prefix.rp3.clairvoyant": true,
+            "chat.prefix.rp3.compass": true,
+            "chat.prefix.rp3.orangutan": true,
+            "chat.prefix.rp3.otter": true,
+            "chat.prefix.rp3.skunk": true,
+            "chat.prefix.rp3.sloth": true,
+            "chat.prefix.rp3.statue_of_liberty": true,
+            "chat.prefix.rp3.tornado": true,
+            "chat.prefix.rp3.yo-yo": true,
+            "chat.prefix.rp3.zany_face": true,
+            "daily_100": true,
+            "daily_30": true,
+            "discord_linked": true,
+            "halloween_22": true,
+            "item.prefix_pack_1": true,
+            "license_beta_p2w": true,
+            "license_corp_cooldown": true,
+            "license_driver": true,
+            "license_faq_bonus_exp_5": true,
+            "license_perk_cooldown": true,
+            "license_premium": true,
+            "license_pristine": true,
+            "license_supercomputer_slow": true,
+            "mechanic": true,
+            "nocorp": true,
+            "perk_farming_farming": true,
+            "pet_business_business": true,
+            "pet_farming_farming": true,
+            "pet_farming_mining": true,
+            "pet_hunting_skill": true,
+            "pet_physical_strength": true,
+            "pet_player_player": true,
+            "pet_train_train": true,
+            "pet_trucking_trucking": true,
+            "reward_aliencar": true,
+            "reward_wastelander": true,
+            "scan": true,
+            "scan_first": true,
+            "sd.trucking.asphalt": true,
+            "sd.trucking.cardboard": true,
+            "sd.trucking.clucking.fish": true,
+            "sd.trucking.clucking.meat": true,
+            "sd.trucking.conveyor": true,
+            "sd.trucking.dilutedfuel": true,
+            "sd.trucking.factory.jewelry": true,
+            "sd.trucking.factory.titanium": true,
+            "sd.trucking.foundry.copper": true,
+            "sd.trucking.foundry.gold": true,
+            "sd.trucking.foundry.zinc": true,
+            "sd.trucking.mckenzie.plastic": true,
+            "sd.trucking.quarry.gravel": true,
+            "sd.trucking.quarry.ore": true,
+            "sd.trucking.sawmill.plank": true,
+            "sd.trucking.sawmill.sawdust": true,
+            "sd.trucking.shipment.landstalker2": true,
+            "sd.trucking.shipment.tenf": true,
+            "sd.trucking.treatment.waste": true,
+            "trucker_master": true,
+            "user": true,
+            "wiki_contributor": true,
+            "wiki_translator": true
         },
-        "hunting_permit": {
-          "amount": 55
+        "health": 200,
+        "hunger": 0,
+        "inventory": {
+            "backpack": {
+                "amount": 1,
+                "name": "<span style='color:purple'>Backpack</span>",
+                "weight": 0.0
+            },
+            "biz_token": {
+                "amount": 1181644,
+                "name": "Business Cash Stacks",
+                "weight": 0.0
+            },
+            "chest_daily": {
+                "amount": 1,
+                "name": "Treasure Chest [Daily]",
+                "weight": 0.0
+            },
+            "chest_key_master": {
+                "amount": 1,
+                "name": "<span class='rainbow'>Treasure Master Key</span>",
+                "weight": 0.0
+            },
+            "chest_tier3": {
+                "amount": 1,
+                "name": "Treasure Chest [High-grade]",
+                "weight": 0.0
+            },
+            "digiscanner": {
+                "amount": 1,
+                "name": "Digiscanner",
+                "weight": 0.0
+            },
+            "exp_bonus_ee": {
+                "amount": 1,
+                "name": "EXP Bonus: 15&#37; (1 Hour)",
+                "weight": 0.0
+            },
+            "exp_token|ems|ems": {
+                "amount": 875,
+                "name": "EXP Token (EMS)<span type='ems-ems'/>",
+                "weight": 0.0
+            },
+            "fertilizer": {
+                "amount": 7,
+                "name": "Fertilizer",
+                "weight": 1.0
+            },
+            "level_token": {
+                "amount": 1,
+                "name": "Skill Level Token",
+                "weight": 0.0
+            },
+            "phone_atm": {
+                "amount": 1,
+                "name": "Phone Extension: Portable ATM",
+                "weight": 0.0
+            },
+            "pills": {
+                "amount": 374,
+                "name": "Pills",
+                "weight": 0.1
+            },
+            "repairkit": {
+                "amount": 19818,
+                "name": "Repair Kit",
+                "weight": 0.0
+            },
+            "rotten_potato": {
+                "amount": 2,
+                "name": "<span></span>Rotten Potato",
+                "weight": 0.0
+            },
+            "sd_encrypted": {
+                "amount": 5,
+                "name": "Encrypted SD Card",
+                "weight": 0.0
+            },
+            "toll_card": {
+                "amount": 8795,
+                "name": "Toll Card",
+                "weight": 0.0
+            }
         },
-        "exp_token_a|player|player": {
-          "amount": 791
+        "ironman": false,
+        "licenses": {
+            "beta_p2w": 1622308479,
+            "commerce_beta": 0,
+            "commerce_premium": 0,
+            "commerce_transfer": 0,
+            "corp_cooldown": 1684167102,
+            "discord_voice": 1682967387,
+            "discord_voice_10": 0,
+            "driver": 1587660740,
+            "exp_15": 1676424695,
+            "exp_day": 1667827546,
+            "exp_ee": 1683463459,
+            "exp_ee2": 1677504053,
+            "exp_ee3": 1667588390,
+            "exp_week": 1662809398,
+            "faq_bonus_exp_15": 0,
+            "faq_bonus_exp_5": 1683641719,
+            "firearm": 0,
+            "freefuel_p2w": 0,
+            "helicopter": 0,
+            "muted_2d": 0,
+            "muted_perm": 0,
+            "muted_suggestions": 0,
+            "muted_time": 0,
+            "muted_week": 0,
+            "nofood_p2w": 0,
+            "nofuel_p2w": 0,
+            "notoll_p2w": 0,
+            "notrap_p2w": 0,
+            "p2w_premium": 0,
+            "patreon_beta": 0,
+            "patreon_premium": 0,
+            "patreon_transfer": 0,
+            "perk_cooldown": 1683610438,
+            "plane": 0,
+            "police": 0,
+            "premium": 1685812320,
+            "premium2": 0,
+            "premium3": 0,
+            "premium_p2w": 0,
+            "pristine": 1630615642,
+            "reward_perma25": 0,
+            "supercomputer": 1680080036,
+            "supercomputer_fast": 1677450442,
+            "supercomputer_slow": 1683633459,
+            "transfer": 1679338885,
+            "transfer_p2w": 0
         },
-        "repairkit": {
-          "amount": 19845
+        "loans": {
+            "loan_big": true,
+            "loan_extreme": true,
+            "loan_insane": true,
+            "loan_medium": true,
+            "loan_million": true
         },
-        "faction_money_card|250000": {
-          "amount": 1
+        "position": {
+            "h": 271.9,
+            "x": 194.5,
+            "y": -845.3,
+            "z": 30.9
         },
-        "hunting_boost": {
-          "amount": 55
-        },
-        "exp_token_a|trucking|trucking": {
-          "amount": 324
-        },
-        "fishing_tackle_rare": {
-          "amount": 196
-        },
-        "weather_stick": {
-          "amount": 20
-        },
-        "exp_token_a|trucking|garbage": {
-          "amount": 324
-        },
-        "level_token": {
-          "amount": 653
-        },
-        "biz_token": {
-          "amount": 10958622
-        },
-        "chest_key": {
-          "amount": 3
-        },
-        "rotten_potato": {
-          "amount": 2
-        },
-        "exp_token_a|piloting|cargos": {
-          "amount": 582
-        },
-        "trucker_pda": {
-          "amount": 2
-        },
-        "speed_trap_radar": {
-          "amount": 1
-        },
-        "exp_token|hunting|skill": {
-          "amount": 225
-        },
-        "title_card_custom": {
-          "amount": 1
-        },
-        "sd_encrypted": {
-          "amount": 1
-        },
-        "chest_tier1": {
-          "amount": 6
-        },
-        "phone_atm": {
-          "amount": 1
-        },
-        "digiscanner": {
-          "amount": 1
-        },
-        "storage_card": {
-          "amount": 4
-        },
-        "exp_token_a|hunting|skill": {
-          "amount": 233210
-        },
-        "backpack": {
-          "amount": 1
-        },
-        "complete_meal": {
-          "amount": 17
-        },
-        "toll_card": {
-          "amount": 8856
-        },
-        "exp_token_a|physical|strength": {
-          "amount": 328
-        },
-        "chest_tier2": {
-          "amount": 1
+        "thirst": 0,
+        "vehicle": {
+            "has_trailer": false,
+            "owned_vehicles": {
+                "car": "exoskeleton"
+            },
+            "trailer": "",
+            "vehicle_class": -1,
+            "vehicle_label": "NULL",
+            "vehicle_model": -1,
+            "vehicle_name": "None",
+            "vehicle_spawn": "",
+            "vehicle_type": "foot"
         }
-      },
-      "thirst": 0,
-      "gaptitudes": {
-        "business": {
-          "business": 25250
-        },
-        "piloting": {
-          "heli": 25250,
-          "cargos": 25250,
-          "piloting": 25250
-        },
-        "casino": {
-          "casino": 25250
-        },
-        "hunting": {
-          "skill": 25250
-        },
-        "train": {
-          "train": 25250,
-          "bus": 25250
-        },
-        "farming": {
-          "farming": 25250,
-          "mining": 25250,
-          "fishing": 25250
-        },
-        "trucking": {
-          "garbage": 25250,
-          "postop": 25250,
-          "trucking": 25250,
-          "mechanic": 25250
-        },
-        "ems": {
-          "ems": 25250,
-          "fire": 25250
-        },
-        "physical": {
-          "strength": 2325
-        },
-        "player": {
-          "racing": 25250,
-          "player": 25250
-        }
-      },
-      "health": 200,
-      "vehicle": {
-        "vehicle_label": "NULL",
-        "vehicle_model": -1,
-        "vehicle_class": -1,
-        "trailer": "",
-        "vehicle_spawn": "",
-        "vehicle_type": "foot",
-        "vehicle_name": "None",
-        "has_trailer": "False",
-        "owned_vehicles": []
-      },
-      "current_loan": "loan_insane",
-      "chat_prefix": "RP1_DRAGON",
-      "loans": {
-        "loan_million": "True",
-        "loan_big": "True",
-        "loan_extreme": "True",
-        "loan_medium": "True",
-        "loan_insane": "True"
-      },
-      "gaptitudes_v": {
-        "business": {
-          "business": 3921165.261000034
-        },
-        "piloting": {
-          "heli": 31200.963000000036,
-          "cargos": 220725.05100000367,
-          "piloting": 27950.36200000001
-        },
-        "casino": {
-          "casino": 27207.95599999999
-        },
-        "hunting": {
-          "skill": 112769.39300000005
-        },
-        "train": {
-          "train": 1001845.0179999982,
-          "bus": 31907.47900000009
-        },
-        "farming": {
-          "farming": 56726.318999999894,
-          "mining": 1013225.7730000028,
-          "fishing": 36183.069999998756
-        },
-        "trucking": {
-          "garbage": 30837.831000000013,
-          "postop": 89315.99800000004,
-          "trucking": 1735452.4399996465,
-          "mechanic": 45976.35999999999
-        },
-        "ems": {
-          "ems": 38933.676,
-          "fire": 32969.9039999999
-        },
-        "physical": {
-          "strength": 1861034.9640000376
-        },
-        "player": {
-          "racing": 67081.07900000001,
-          "player": 2048453.086999624
-        }
-      },
-      "licenses": {
-        "premium": 1680294236,
-        "supercomputer_fast": 1677450442,
-        "discord_voice_10": 1680101076,
-        "supercomputer_slow": 1677140984,
-        "muted_perm": 0,
-        "exp_ee2": 1677504053,
-        "notoll_p2w": 0,
-        "plane": 0,
-        "nofood_p2w": 0,
-        "transfer": 1679338885,
-        "perk_cooldown": 1680032299,
-        "police": 0,
-        "transfer_p2w": 0,
-        "pristine": 1630615642,
-        "faq_bonus_exp_5": 1680208278,
-        "patreon_transfer": 0,
-        "exp_15": 1676424695,
-        "reward_perma25": 0,
-        "nofuel_p2w": 0,
-        "muted_suggestions": 0,
-        "commerce_beta": 0,
-        "muted_time": 0,
-        "helicopter": 0,
-        "exp_day": 1667827546,
-        "premium3": 0,
-        "muted_week": 0,
-        "commerce_transfer": 0,
-        "commerce_premium": 0,
-        "patreon_premium": 0,
-        "muted_2d": 0,
-        "p2w_premium": 0,
-        "faq_bonus_exp_15": 0,
-        "exp_week": 1662809398,
-        "freefuel_p2w": 0,
-        "discord_voice": 0,
-        "firearm": 0,
-        "patreon_beta": 0,
-        "driver": 1587660740,
-        "notrap_p2w": 0,
-        "supercomputer": 1680080036,
-        "exp_ee3": 1667588390,
-        "premium_p2w": 0,
-        "exp_ee": 1679953949,
-        "corp_cooldown": 1674497364,
-        "beta_p2w": 1622308479,
-        "premium2": 0
-      },
-      "customization": {
-        "0": [
-          44,
-          0,
-          0
-        ],
-        "1": [
-          129,
-          10,
-          0
-        ],
-        "2": [
-          0,
-          0,
-          2,
-          0,
-          0
-        ],
-        "3": [
-          179,
-          0,
-          0
-        ],
-        "4": [
-          11,
-          0,
-          0
-        ],
-        "5": [
-          32,
-          0,
-          0
-        ],
-        "6": [
-          72,
-          0,
-          0
-        ],
-        "7": [
-          0,
-          0,
-          2
-        ],
-        "8": [
-          0,
-          0,
-          0
-        ],
-        "9": [
-          10,
-          1,
-          0
-        ],
-        "10": [
-          4,
-          0,
-          0
-        ],
-        "11": [
-          15,
-          0,
-          0
-        ],
-        "12": [
-          0,
-          0,
-          0
-        ],
-        "13": [
-          0,
-          0,
-          0
-        ],
-        "14": [
-          0,
-          2,
-          255
-        ],
-        "15": [
-          2560,
-          0,
-          110
-        ],
-        "16": [
-          0,
-          0,
-          255
-        ],
-        "17": [
-          256,
-          0,
-          255
-        ],
-        "18": [
-          131072,
-          0,
-          255
-        ],
-        "19": [
-          33554432,
-          2,
-          255
-        ],
-        "20": [
-          0,
-          0,
-          255
-        ],
-        "p6": [
-          -1,
-          0
-        ],
-        "p8": [
-          -1,
-          0
-        ],
-        "p0": [
-          -1,
-          0
-        ],
-        "p10": [
-          -1,
-          0
-        ],
-        "p2": [
-          -1,
-          0
-        ],
-        "h0": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h4": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h2": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h6": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h12": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "p5": [
-          -1,
-          0
-        ],
-        "p7": [
-          -1,
-          0
-        ],
-        "p9": [
-          -1,
-          0
-        ],
-        "modelhash": 1885233650,
-        "h9": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h3": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h8": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "p3": [
-          -1,
-          0
-        ],
-        "p1": [
-          -1,
-          0
-        ],
-        "h1": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h10": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "p4": [
-          -1,
-          0
-        ],
-        "h7": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h11": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h5": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ]
-      },
-      "AcceptingPlayerEms": "True",
-      "hunger": 0,
-      "groups": {
-        "chat.prefix.rp1.palm_tree": "True",
-        "chat.prefix.rp1.monkey_face": "True",
-        "scan": "True",
-        "sd.trucking.foundry.copper": "True",
-        "chat.prefix.rp1.wilted_flower": "True",
-        "chat.prefix.rp1.elephant": "True",
-        "chat.prefix.rp1.first_quarter_moon_face": "True",
-        "chat.prefix.biz_stripclub": "True",
-        "chat.prefix.rp1.dolphin": "True",
-        "chat.prefix.rp1.peacock": "True",
-        "wiki_contributor": "True",
-        "chat.prefix.rp2.droplet": "True",
-        "item.prefix_pack_1": "True",
-        "chat.prefix.rp1.spiral_shell": "True",
-        "chat.prefix.rp1.last_quarter_moon_face": "True",
-        "chat.prefix.rp1.white_flower": "True",
-        "chat.prefix.rp1.snake": "True",
-        "chat.prefix.rp1.maple_leaf": "True",
-        "chat.prefix.biz_uginc_gs": "True",
-        "chat.prefix.rp1.rat": "True",
-        "chat.prefix.biz_lsia": "True",
-        "chat.prefix.rp1.octopus": "True",
-        "chat.prefix.rp2.lotion_bottle": "True",
-        "chat.prefix.rp3.orangutan": "True",
-        "sd.trucking.quarry.gravel": "True",
-        "daily_100": "True",
-        "chat.prefix.rp3.compass": "True",
-        "chat.prefix.rp2.rainbow": "True",
-        "chat.prefix.rp1.sun_with_face": "True",
-        "chat.prefix.rp1.pig_face": "True",
-        "chat.prefix.biz_stay_frosty": "True",
-        "sd.trucking.sawmill.plank": "True",
-        "ch_title": "True",
-        "chat.prefix.rp1.tanabata_tree": "True",
-        "chat.prefix.biz_bahama_mamas": "True",
-        "chat.prefix.rp2.pill": "True",
-        "chat.prefix.biz_oilrig": "True",
-        "sd.trucking.cardboard": "True",
-        "chat.prefix.rp1.bat": "True",
-        "pet_hunting_skill": "True",
-        "pet_physical_strength": "True",
-        "license_premium": "True",
-        "chat.prefix.rp1.rooster": "True",
-        "chat.prefix.rp1.leaf_fluttering_in_wind": "True",
-        "daily_30": "True",
-        "chat.prefix.biz_granny": "True",
-        "sd.trucking.factory.titanium": "True",
-        "chat.prefix.rp2.tulip": "True",
-        "chat.prefix.rp1.cat_face": "True",
-        "chat.prefix.rp3.yo-yo": "True",
-        "chat.prefix.rp1.tropical_fish": "True",
-        "chat.prefix.rp3.statue_of_liberty": "True",
-        "chat.prefix.rp1.t-rex": "True",
-        "chat.prefix.rp3.tornado": "True",
-        "chat.prefix.rp1.unicorn": "True",
-        "license_faq_bonus_exp_5": "True",
-        "sd.trucking.sawmill.sawdust": "True",
-        "chat.prefix.rp2.world_map": "True",
-        "perk_train_train": "True",
-        "chat.prefix.rp1.waning_crescent_moon": "True",
-        "chat.prefix.rp2.hospital": "True",
-        "chat.prefix.rp1.deciduous_tree": "True",
-        "chat.prefix.rp1.front-facing_baby_chick": "True",
-        "chat.prefix.rp2.feats_of_strength": "True",
-        "chat.prefix.rp1.pine_decoration": "True",
-        "chat.prefix.rp2.dizzy": "True",
-        "chat.prefix.rp1.horse": "True",
-        "chat.prefix.rp1.snail": "True",
-        "chat.prefix.rp1.ox": "True",
-        "chat.prefix.rp1.bird": "True",
-        "chat.prefix.rp2.hand_with_fingers_splayed": "True",
-        "chat.prefix.rp1.ram": "True",
-        "sd.trucking.treatment.waste": "True",
-        "chat.prefix.rp2.syringe": "True",
-        "chat.prefix.rp1.squid": "True",
-        "chat.prefix.rp1.evergreen_tree": "True",
-        "corp9.rockwell.tier4": "True",
-        "chat.prefix.rp1.turkey": "True",
-        "chat.prefix.rp1.water_buffalo": "True",
-        "chat.prefix.rp1.new_moon_face": "True",
-        "chat.prefix.rp1.waning_gibbous_moon": "True",
-        "chat.prefix.rp3.zany_face": "True",
-        "chat.prefix.rp1.cow": "True",
-        "sd.trucking.foundry.gold": "True",
-        "trucker_master": "True",
-        "license_pristine": "True",
-        "chat.prefix.rp2.airing_of_grievances": "True",
-        "pet_farming_farming": "True",
-        "chat.prefix.rp1.rainbow": "True",
-        "chat.prefix.biz_pbcc": "True",
-        "chat.prefix.biz_cluckingbell_co": "True",
-        "chat.prefix.rp1.bug": "True",
-        "user": "True",
-        "pet_trucking_trucking": "True",
-        "chat.prefix.rp1.lizard": "True",
-        "chat.prefix.rp2.soap": "True",
-        "pet_farming_mining": "True",
-        "hunter": "True",
-        "chat.prefix.rp1.sheaf_of_rice": "True",
-        "chat.prefix.rp2.globe_with_meridians": "True",
-        "chat.prefix.rp1.blossom": "True",
-        "chat.prefix.rp1.crescent_moon": "True",
-        "chat.prefix.rp1.penguin": "True",
-        "chat.prefix.rp1.sunflower": "True",
-        "chat.prefix.rp2.honeybee": "True",
-        "chat.prefix.rp1.dashing_away": "True",
-        "chat.prefix.rp1.waxing_crescent_moon": "True",
-        "chat.prefix.rp1.sweat_droplets": "True",
-        "sd.trucking.shipment.landstalker2": "True",
-        "chat.prefix.rp1.herb": "True",
-        "halloween_22": "True",
-        "chat.prefix.rp2.sunflower": "True",
-        "pet_player_player": "True",
-        "chat.prefix.rp1.deer": "True",
-        "chat.prefix.rp1.paw_prints": "True",
-        "sd.trucking.dilutedfuel": "True",
-        "sd.trucking.mckenzie.plastic": "True",
-        "chat.prefix.rp1.dog_face": "True",
-        "chat.prefix.rp2.hedgehog": "True",
-        "chat.prefix.rp1.baby_chick": "True",
-        "chat.prefix.rp2.clapping_hands": "True",
-        "chat.prefix.rp3.cherry": "True",
-        "chat.prefix.rp1.lady_beetle": "True",
-        "chat.prefix.rp2.four_leaf_clover": "True",
-        "chat.prefix.rp2.dizzy_face": "True",
-        "chat.prefix.rp2.microbe": "True",
-        "sd.trucking.clucking.meat": "True",
-        "chat.prefix.rp2.deciduous_tree": "True",
-        "biz_satn": "True",
-        "chat.prefix.rp1.monkey": "True",
-        "chat.prefix.rp3.clairvoyant": "True",
-        "chat.prefix.rp1.chicken": "True",
-        "chat.prefix.rp1.full_moon": "True",
-        "license_beta_p2w": "True",
-        "chat.prefix.rp2.sun_with_face": "True",
-        "chat.prefix.rp2.palms_up_together": "True",
-        "scan_first": "True",
-        "chat.prefix.rp1.parrot": "True",
-        "pet_train_train": "True",
-        "chat.prefix.rp1.hibiscus": "True",
-        "chat.prefix.rp1.kangaroo": "True",
-        "license_driver": "True",
-        "reward_wastelander": "True",
-        "chat.prefix.rp1.fallen_leaf": "True",
-        "chat.prefix.rp1.rhinoceros": "True",
-        "wiki_translator": "True",
-        "chat.prefix.rp1.goat": "True",
-        "chat.prefix.rp3.skunk": "True",
-        "chat.prefix.rp2.pager": "True",
-        "chat.prefix.rp2.seedling": "True",
-        "chat.prefix.rp1.badger": "True",
-        "chat.prefix.rp1.blowfish": "True",
-        "chat.prefix.rp2.calendar": "True",
-        "chat.prefix.rp1.swan": "True",
-        "chat.prefix.rp1.tiger_face": "True",
-        "sd.trucking.asphalt": "True",
-        "chat.prefix.rp2.rabbit": "True",
-        "chat.prefix.rp1.cow_face": "True",
-        "chat.prefix.biz_zancudo": "True",
-        "chat.prefix.biz_chiliad_base": "True",
-        "chat.prefix.rp1.hatching_chick": "True",
-        "chat.prefix.rp2.potable_water": "True",
-        "chat.prefix.rp1.eagle": "True",
-        "chat.prefix.rp1.rose": "True",
-        "sd.trucking.factory.jewelry": "True",
-        "sd.trucking.clucking.fish": "True",
-        "chat.prefix.rp1.giraffe": "True",
-        "chat.prefix.rp1.four_leaf_clover": "True",
-        "chat.prefix.rp3.carrot": "True",
-        "chat.prefix.rp1.seedling": "True",
-        "chat.prefix.rp2.face_with_thermometer": "True",
-        "chat.prefix.rp1.new_moon": "True",
-        "sd.trucking.quarry.ore": "True",
-        "chat.prefix.rp1.whale": "True",
-        "chat.prefix.rp1.rabbit": "True",
-        "chat.prefix.rp1.glowing_star": "True",
-        "chat.prefix.rp1.shooting_star": "True",
-        "chat.prefix.rp1.dragon": "True",
-        "chat.prefix.rp1.water_wave": "True",
-        "chat.prefix.rp1.owl": "True",
-        "chat.prefix.rp1.cactus": "True",
-        "chat.prefix.rp1.mosquito": "True",
-        "sd.trucking.foundry.zinc": "True",
-        "chat.prefix.rp1.spouting_whale": "True",
-        "discord_linked": "True",
-        "chat.prefix.rp2.swan": "True",
-        "chat.prefix.rp1.bear": "True",
-        "sd.trucking.shipment.tenf": "True",
-        "chat.prefix.rp3.sloth": "True",
-        "chat.prefix.biz_catfish": "True",
-        "chat.prefix.rp3.otter": "True",
-        "chat.prefix.rp1.fire": "True",
-        "pet_business_business": "True",
-        "chat.prefix.rp1.rabbit_face": "True",
-        "reward_aliencar": "True",
-        "chat.prefix.rp1.boar": "True",
-        "chat.prefix.rp2.sheaf_of_rice": "True",
-        "chat.prefix.rp1.crab": "True"
-      },
-      "ironman": "False",
-      "cloakroom_idle": {
-        "0": [
-          44,
-          0,
-          0
-        ],
-        "1": [
-          129,
-          10,
-          0
-        ],
-        "2": [
-          0,
-          0,
-          2,
-          0,
-          0
-        ],
-        "3": [
-          179,
-          0,
-          0
-        ],
-        "4": [
-          11,
-          0,
-          0
-        ],
-        "5": [
-          32,
-          0,
-          0
-        ],
-        "6": [
-          72,
-          0,
-          0
-        ],
-        "7": [
-          0,
-          0,
-          2
-        ],
-        "8": [
-          0,
-          0,
-          0
-        ],
-        "9": [
-          10,
-          1,
-          0
-        ],
-        "10": [
-          4,
-          0,
-          0
-        ],
-        "11": [
-          15,
-          0,
-          0
-        ],
-        "12": [
-          0,
-          0,
-          0
-        ],
-        "13": [
-          0,
-          0,
-          0
-        ],
-        "14": [
-          0,
-          2,
-          255
-        ],
-        "15": [
-          2560,
-          0,
-          110
-        ],
-        "16": [
-          0,
-          0,
-          255
-        ],
-        "17": [
-          256,
-          0,
-          255
-        ],
-        "18": [
-          131072,
-          0,
-          255
-        ],
-        "19": [
-          33554432,
-          2,
-          255
-        ],
-        "20": [
-          0,
-          0,
-          255
-        ],
-        "p6": [
-          -1,
-          0
-        ],
-        "p8": [
-          -1,
-          0
-        ],
-        "p0": [
-          -1,
-          0
-        ],
-        "p10": [
-          -1,
-          0
-        ],
-        "p2": [
-          -1,
-          0
-        ],
-        "h0": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h4": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h2": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h6": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h12": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "p5": [
-          -1,
-          0
-        ],
-        "p7": [
-          -1,
-          0
-        ],
-        "p9": [
-          -1,
-          0
-        ],
-        "modelhash": 1885233650,
-        "h9": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h3": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h7": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "p3": [
-          -1,
-          0
-        ],
-        "p1": [
-          -1,
-          0
-        ],
-        "h5": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h11": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h1": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "h10": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ],
-        "p4": [
-          -1,
-          0
-        ],
-        "h8": [
-          255,
-          0,
-          0,
-          0,
-          1
-        ]
-      }
     },
     "data_type": "data_offline",
-    "user_id": 339433,
-    "code": "200"
-  }
+    "user_id": 339433
+}

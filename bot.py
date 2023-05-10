@@ -1,9 +1,10 @@
-import time, math, requests, discord, datetime, key, asyncio, youtube_dl
+import time, math, requests, discord, datetime, asyncio, youtube_dl, json, key
 from discord import app_commands
 from discord.ext import commands
 from requests.structures import CaseInsensitiveDict
 from reactionmenu import ViewMenu, ViewButton
 from typing import Optional
+datafile = open("data.json", "a+")
 
 
 MY_GUILD = discord.Object(id=719546155649859654)
@@ -88,7 +89,8 @@ async def helptt(ctx):
 async def debug(ctx, endpoint):
     ans = requests.get(url=url+endpoint, headers=headers).json()
     
-    await ctx.send(ans["data"]["groups"])
+    datafile.write(json.dumps(ans, sort_keys=True, indent=4))
+    await ctx.send(ans)
 
 @bot.command()
 async def ping(ctx):
@@ -107,7 +109,23 @@ async def charges(ctx):
     charge_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
     await ctx.send(embed=charge_embed)
 
+@bot.command()
+async def skills(ctx):
+    dc_id = ctx.author.id
+    id_ep = f"snowflake2user/{dc_id}"
+    ans_id = requests.get(url=url+id_ep, headers=headers).json()
+    userid = ans_id["user_id"]
 
+    embed_time = math.trunc(time.time())
+
+    wealth_embed=discord.Embed(color=0x42c0ff)
+    wealth_embed.set_author(name="Your Skills Data")
+    wealth_embed.add_field(name="Wallet Balance :", value=f"{wallet:,}", inline=False)
+    wealth_embed.add_field(name="Bank Balance :", value=f"{bank:,}", inline=False)
+    wealth_embed.add_field(name="Total Balance :", value=f"{wallet+bank:,}", inline=False)
+    wealth_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+
+    
 
 @bot.command()
 async def inv(ctx):

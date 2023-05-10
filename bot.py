@@ -77,6 +77,7 @@ async def helptt(ctx):
     help_embed = discord.Embed()
     help_embed.set_author(name="Help commands")
     help_embed.add_field(name="help", value="show all commands this bot supports (this menu)")
+    help_embed.add_field(name="dataadv", value="sends back text file with all advanced data (JSON format) ")
     help_embed.add_field(name="ping", value="pong")
     help_embed.add_field(name="charges", value="show available charges on the key")
     help_embed.add_field(name="streak", value="gives login streak")

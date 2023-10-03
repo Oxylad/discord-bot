@@ -10,6 +10,6 @@ Discord Transport Tycoon Bot Made By Oxylad
  BOT_TOKEN = "(discord bot token from developer portal)"
  CHANNEL_ID = (id of the channel the bot will respond in(not needed if the bot is used in the whole server))
  
-(If you somehow want to use part of my code feel free to use it but credit me @Oxylad#0994 on discord)
+(If you somehow want to use part of my code feel free to use it but credit me @Oxylad on discord)
 
 ((My code will not be very commentated until i feel it is finished))

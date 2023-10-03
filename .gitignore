@@ -1,3 +1,7 @@
 /key.py
 /test-bot.py
 /data.json
+__pycache__
+levels-shit
+project_venv
+__pycache__/key.cpython-311.pyc

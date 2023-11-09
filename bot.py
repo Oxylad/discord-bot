@@ -5,7 +5,7 @@ from requests.structures import CaseInsensitiveDict
 from reactionmenu import ViewMenu, ViewButton
 from typing import Optional
 datafile = open("data.json", "a+")
-textfile = open("text.txt","a+")
+textfile = open("debug.txt","a+")
 
 
 MY_GUILD = discord.Object(id=719546155649859654)
@@ -25,7 +25,6 @@ bot = MyClient(intents=intents)
 
 headers = CaseInsensitiveDict()
 headers["X-Tycoon-Key"] = (key.key)
-url = "http://v1.api.tycoon.community/main/"
 
 bot = commands.Bot(command_prefix=">", intents=discord.Intents.all(), case_insesitive=True)
 
@@ -38,12 +37,6 @@ async def on_ready():
 async def sendinchannel(ctx, channel: int, *, msg):
     await bot.get_channel(channel).send(msg)
     await ctx.send("Message sent!")
-
-
-@bot.command(pass_context=True)
-async def kill(ctx):
-    await ctx.send("KMS now")
-    await exit()
 
 @bot.command()
 async def add(ctx, *arr):
@@ -89,12 +82,12 @@ async def helptt(ctx):
 
 @bot.command()
 async def debug(ctx, endpoint):
-    ans = requests.get(url=url+endpoint, headers=headers).json()
-    with open("text.txt", "w") as file:
+    ans = requests.get(url=key.url+endpoint, headers=headers).json()
+    with open("debug.txt", "w") as file:
         textfile.write(json.dumps(ans, sort_keys=True, indent=4))
 
-    with open("text.txt", "rb") as file:
-        await ctx.send("Your file is:", file=discord.File(file, "text.txt"))
+    with open("debug.txt", "rb") as file:
+        await ctx.send("Your file is:", file=discord.File(file, "debug.txt"))
 
 
 @bot.command()
@@ -104,7 +97,7 @@ async def ping(ctx):
 @bot.command()
 async def charges(ctx):
     endpoint = "charges.json"
-    ans = requests.get(url=url+endpoint, headers=headers).json()
+    ans = requests.get(url=key.url+endpoint, headers=headers).json()
     
     embed_time = math.trunc(time.time())
 
@@ -118,8 +111,12 @@ async def charges(ctx):
 async def skills(ctx):
     dc_id = ctx.author.id
     id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=url+id_ep, headers=headers).json()
+    ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
     userid = ans_id["user_id"]
+    
+    ans = requests.get(url=key.url+f"data/{userid}", headers=headers).json()
+
+    
 
     embed_time = math.trunc(time.time())
 
@@ -132,18 +129,18 @@ async def skills(ctx):
 async def inv(ctx):
     dc_id = ctx.author.id
     id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=url+id_ep, headers=headers).json()
+    ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
     userid = ans_id["user_id"]
     
     embed_time = math.trunc(time.time())
-    ans = requests.get(url=url+f"data/{userid}", headers=headers).json()
-    print(ans)
-    await ctx.send(ans["data"])
+    ans = requests.get(url=key.url+f"data/{userid}", headers=headers).json()
+
+    await ctx.send(ans["data"]["inventory"])
 
 @bot.command()
 async def endpoints(ctx):
     endpoint = "endpoints.json"
-    ans = requests.get(url=url+endpoint, headers=headers).json()
+    ans = requests.get(url=key.url+endpoint, headers=headers).json()
     await ctx.send(ans)
 
 
@@ -151,11 +148,11 @@ async def endpoints(ctx):
 async def streak(ctx):
     dc_id = ctx.author.id
     id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=url+id_ep, headers=headers).json()
+    ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
     userid = ans_id["user_id"]
     
     embed_time = math.trunc(time.time())
-    ans = requests.get(url=url+f"streak/{userid}", headers=headers).json()
+    ans = requests.get(url=key.url+f"streak/{userid}", headers=headers).json()
     
     streak_embed = discord.Embed(color=0x2c2c34)
     streak_embed.add_field(name="**Your streak data**", value="**Current streak: **"+str(ans["data"]["streak"])+"\n **Record streak: **"+ str(ans["data"]["record"])+ "\n **Total days logged in: **"+str(ans["data"]["days"])+"\n\n"+f"<t:{embed_time}:R>", inline=False)
@@ -164,7 +161,7 @@ async def streak(ctx):
 @bot.command()
 async def sotd(ctx):
     embed_time= math.trunc(time.time())
-    ans = requests.get(url=url+f"/sotd.json", headers=headers).json()
+    ans = requests.get(url=key.url+f"/sotd.json", headers=headers).json()
     sotd_embed=discord.Embed(color=0x2c2c34)
     sotd_embed.add_field(name="\n Current SoTD:", value="The skill of the day is "+str(ans["bonus"])+"%  "+ str(ans["skill"])+ "\n\n"+f"<t:{embed_time}:R>", inline=False)
     await ctx.send(embed=sotd_embed)
@@ -179,7 +176,7 @@ async def wealth(ctx):
     
     embed_time= math.trunc(time.time())
     endpoint = f"wealth/{userid}"
-    ans = requests.get(url=url+endpoint, headers=headers).json()
+    ans = requests.get(url=key.url+endpoint, headers=headers).json()
     try:
         wallet = ans["wallet"]
         bank = ans["bank"]
@@ -198,12 +195,12 @@ async def stats(ctx):
     menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed)
     dc_id = ctx.author.id
     id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=url+id_ep, headers=headers).json()
+    ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
     userid = ans_id["user_id"]
     
     embed_time= math.trunc(time.time())
     endpoint = f"stats/{userid}"
-    ans = requests.get(url=url+endpoint, headers=headers).json()
+    ans = requests.get(url=key.url+endpoint, headers=headers).json()
     
     stats_embed1=discord.Embed(color=0x2c2c34)
     stats_embed1.set_author(name="Your Game Stats")
@@ -294,9 +291,19 @@ async def add(interaction: discord.interactions, first_value: int, second_value:
 
 @bot.tree.command()
 @app_commands.describe(channel='the channel', msg='the message')
-async def sendinchannel(interaction: discord.interactions, channel: int, msg: str):
+async def sendinchannel(interaction: discord.interactions, channel: int, msg: str): 
     await bot.get_channel(channel).send(msg)
     await interaction.response.send_message("Message sent!")
 
+
+@bot.tree.command()
+@app_commands.describe(endpoint='endpoint here')
+async def debug(interaction: discord.interactions, endpoint: str):
+    ans = requests.get(url=key.url+endpoint, headers=headers).json()
+    with open("debug.txt", "w") as file:
+        textfile.write(json.dumps(ans, sort_keys=True, indent=4))
+
+    with open("debug.txt", "rb") as file:
+        await interaction.response.send_message("Your file is:", file=discord.File(file, "debug.txt"))
 
 bot.run(key.BOT_TOKEN)

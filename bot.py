@@ -34,7 +34,7 @@ async def on_ready():
 
 #change to slash command
 @bot.command()
-async def sendinchannel(ctx, channel: int, *, msg):
+async def send_in_channel(ctx, channel: int, *, msg):
     await bot.get_channel(channel).send(msg)
     await ctx.send("Message sent!")
 
@@ -63,7 +63,7 @@ async def testcmd(ctx):
     await ctx.send("Current Time =", current_time)
     
 @bot.command()
-async def send_msg(channel: discord.channel, message):
+async def send_msg(channel: discord.channel, message): # type: ignore
     await channel.send(message)
 
 @bot.command()
@@ -291,7 +291,7 @@ async def add(interaction: discord.interactions, first_value: int, second_value:
 
 @bot.tree.command()
 @app_commands.describe(channel='the channel', msg='the message')
-async def sendinchannel(interaction: discord.interactions, channel: int, msg: str): 
+async def sendinchannel(interaction: discord.interactions, channel: int, msg: str):  # type: ignore
     await bot.get_channel(channel).send(msg)
     await interaction.response.send_message("Message sent!")
 

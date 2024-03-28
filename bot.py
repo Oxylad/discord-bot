@@ -66,167 +66,160 @@ async def testcmd(ctx):
 async def send_msg(channel: discord.channel, message): # type: ignore
     await channel.send(message)
 
-@bot.command()
-async def helptt(ctx):
-    help_embed = discord.Embed()
-    help_embed.set_author(name="Help commands")
-    help_embed.add_field(name="helptt", value="show all commands this bot supports (this menu)")
-    help_embed.add_field(name="debug", value="sends back text file with all advanced data (JSON format) ")
-    help_embed.add_field(name="ping", value="pong")
-    help_embed.add_field(name="charges", value="show available charges on the key")
-    help_embed.add_field(name="streak", value="gives login streak")
-    help_embed.add_field(name="sotd", value="skill of the day")
-    help_embed.add_field(name="endpoints", value="available endpoints of the api")
-    await ctx.send(embed=help_embed)
     
-
-@bot.command()
-async def debug(ctx, endpoint):
-    ans = requests.get(url=key.url+endpoint, headers=headers).json()
-    with open("debug.txt", "w") as file:
-        textfile.write(json.dumps(ans, sort_keys=True, indent=4))
-
-    with open("debug.txt", "rb") as file:
-        await ctx.send("Your file is:", file=discord.File(file, "debug.txt"))
-
-
 @bot.command()
 async def ping(ctx):
     await ctx.send(f'Pong! {round(bot.latency * 1000)}ms ping')
 
-@bot.command()
-async def charges(ctx):
-    endpoint = "charges.json"
-    ans = requests.get(url=key.url+endpoint, headers=headers).json()
-    
-    embed_time = math.trunc(time.time())
-
-    charge_embed = discord.Embed(color=0x2c2c34)
-    charge_embed.set_author(name="Remaining charges on key")
-    charge_embed.add_field(name="Charges remaining", value=f"{ans[0]}")
-    charge_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
-    await ctx.send(embed=charge_embed)
-
-@bot.command()
-async def skills(ctx):
-    dc_id = ctx.author.id
-    id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
-    userid = ans_id["user_id"]
-    
-    ans = requests.get(url=key.url+f"data/{userid}", headers=headers).json()
-
+# @bot.command(
+# async def helptt(ctx):
+#     help_embed = discord.Embed()
+#     help_embed.set_author(name="Help commands")
+#     help_embed.add_field(name="helptt", value="show all commands this bot supports (this menu)")
+#     help_embed.add_field(name="debug", value="sends back text file with all advanced data (JSON format) ")
+#     help_embed.add_field(name="ping", value="pong")
+#     help_embed.add_field(name="charges", value="show available charges on the key")
+#     help_embed.add_field(name="streak", value="gives login streak")
+#     help_embed.add_field(name="sotd", value="skill of the day")
+#     help_embed.add_field(name="endpoints", value="available endpoints of the api")
+#     await ctx.send(embed=help_embed)
     
 
-    embed_time = math.trunc(time.time())
+# @bot.command()
+# async def debug(ctx, endpoint):
+#     ans = requests.get(url=key.url+endpoint, headers=headers).json()
+#     with open("debug.txt", "w") as file:
+#         textfile.write(json.dumps(ans, sort_keys=True, indent=4))
 
+#     with open("debug.txt", "rb") as file:
+#         await ctx.send("Your file is:", file=discord.File(file, "debug.txt"))
 
-    await ctx.send("command is WIP")
+# @bot.command()
+# async def charges(ctx):
+#     endpoint = "charges.json"
+#     ans = requests.get(url=key.url+endpoint, headers=headers).json()
+    
+#     embed_time = math.trunc(time.time())
 
+#     charge_embed = discord.Embed(color=0x2c2c34)
+#     charge_embed.set_author(name="Remaining charges on key")
+#     charge_embed.add_field(name="Charges remaining", value=f"{ans[0]}")
+#     charge_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+#     await ctx.send(embed=charge_embed)
+
+# @bot.command()
+# async def skills(ctx):
+#     dc_id = ctx.author.id
+#     id_ep = f"snowflake2user/{dc_id}"
+#     ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
+#     userid = ans_id["user_id"]
+#     ans = requests.get(url=key.url+f"data/{userid}", headers=headers).json()
+#     embed_time = math.trunc(time.time())
+#     await ctx.send("command is WIP")
     
 
-@bot.command()
-async def inv(ctx):
-    dc_id = ctx.author.id
-    id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
-    userid = ans_id["user_id"]
+# @bot.command()
+# async def inv(ctx):
+#     dc_id = ctx.author.id
+#     id_ep = f"snowflake2user/{dc_id}"
+#     ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
+#     userid = ans_id["user_id"]
     
-    embed_time = math.trunc(time.time())
-    ans = requests.get(url=key.url+f"data/{userid}", headers=headers).json()
+#     embed_time = math.trunc(time.time())
+#     ans = requests.get(url=key.url+f"data/{userid}", headers=headers).json()
 
-    await ctx.send(ans["data"]["inventory"])
+#     await ctx.send(ans["data"]["inventory"])
 
-@bot.command()
-async def endpoints(ctx):
-    endpoint = "endpoints.json"
-    ans = requests.get(url=key.url+endpoint, headers=headers).json()
-    await ctx.send(ans)
+# @bot.command()
+# async def endpoints(ctx):
+#     endpoint = "endpoints.json"
+#     ans = requests.get(url=key.url+endpoint, headers=headers).json()
+#     await ctx.send(ans)
 
 
-@bot.command()
-async def streak(ctx):
-    dc_id = ctx.author.id
-    id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
-    userid = ans_id["user_id"]
+# @bot.command()
+# async def streak(ctx):
+#     dc_id = ctx.author.id
+#     id_ep = f"snowflake2user/{dc_id}"
+#     ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
+#     userid = ans_id["user_id"]
     
-    embed_time = math.trunc(time.time())
-    ans = requests.get(url=key.url+f"streak/{userid}", headers=headers).json()
+#     embed_time = math.trunc(time.time())
+#     ans = requests.get(url=key.url+f"streak/{userid}", headers=headers).json()
     
-    streak_embed = discord.Embed(color=0x2c2c34)
-    streak_embed.add_field(name="**Your streak data**", value="**Current streak: **"+str(ans["data"]["streak"])+"\n **Record streak: **"+ str(ans["data"]["record"])+ "\n **Total days logged in: **"+str(ans["data"]["days"])+"\n\n"+f"<t:{embed_time}:R>", inline=False)
-    await ctx.send(embed=streak_embed)
+#     streak_embed = discord.Embed(color=0x2c2c34)
+#     streak_embed.add_field(name="**Your streak data**", value="**Current streak: **"+str(ans["data"]["streak"])+"\n **Record streak: **"+ str(ans["data"]["record"])+ "\n **Total days logged in: **"+str(ans["data"]["days"])+"\n\n"+f"<t:{embed_time}:R>", inline=False)
+#     await ctx.send(embed=streak_embed)
 
-@bot.command()
-async def sotd(ctx):
-    embed_time= math.trunc(time.time())
-    ans = requests.get(url=key.url+f"/sotd.json", headers=headers).json()
-    sotd_embed=discord.Embed(color=0x2c2c34)
-    sotd_embed.add_field(name="\n Current SoTD:", value="The skill of the day is "+str(ans["bonus"])+"%  "+ str(ans["skill"])+ "\n\n"+f"<t:{embed_time}:R>", inline=False)
-    await ctx.send(embed=sotd_embed)
+# @bot.command()
+# async def sotd(ctx):
+#     embed_time= math.trunc(time.time())
+#     ans = requests.get(url=key.url+f"/sotd.json", headers=headers).json()
+#     sotd_embed=discord.Embed(color=0x2c2c34)
+#     sotd_embed.add_field(name="\n Current SoTD:", value="The skill of the day is "+str(ans["bonus"])+"%  "+ str(ans["skill"])+ "\n\n"+f"<t:{embed_time}:R>", inline=False)
+#     await ctx.send(embed=sotd_embed)
 
-@bot.command()
-async def wealth(ctx):
+# @bot.command()
+# async def wealth(ctx):
     
-    dc_id = ctx.author.id
-    id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=url+id_ep, headers=headers).json()
-    userid = ans_id["user_id"]
+#     dc_id = ctx.author.id
+#     id_ep = f"snowflake2user/{dc_id}"
+#     ans_id = requests.get(url=url+id_ep, headers=headers).json()
+#     userid = ans_id["user_id"]
     
-    embed_time= math.trunc(time.time())
-    endpoint = f"wealth/{userid}"
-    ans = requests.get(url=key.url+endpoint, headers=headers).json()
-    try:
-        wallet = ans["wallet"]
-        bank = ans["bank"]
-    except KeyError:
-        await ctx.send("player is offline")
-    wealth_embed=discord.Embed(color=0x2c2c34)
-    wealth_embed.set_author(name="Your Wealth Data")
-    wealth_embed.add_field(name="Wallet Balance :", value=f"{wallet:,}", inline=False)
-    wealth_embed.add_field(name="Bank Balance :", value=f"{bank:,}", inline=False)
-    wealth_embed.add_field(name="Total Balance :", value=f"{wallet+bank:,}", inline=False)
-    wealth_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
-    await ctx.send(embed=wealth_embed)
+#     embed_time= math.trunc(time.time())
+#     endpoint = f"wealth/{userid}"
+#     ans = requests.get(url=key.url+endpoint, headers=headers).json()
+#     try:
+#         wallet = ans["wallet"]
+#         bank = ans["bank"]
+#     except KeyError:
+#         await ctx.send("player is offline")
+#     wealth_embed=discord.Embed(color=0x2c2c34)
+#     wealth_embed.set_author(name="Your Wealth Data")
+#     wealth_embed.add_field(name="Wallet Balance :", value=f"{wallet:,}", inline=False)
+#     wealth_embed.add_field(name="Bank Balance :", value=f"{bank:,}", inline=False)
+#     wealth_embed.add_field(name="Total Balance :", value=f"{wallet+bank:,}", inline=False)
+#     wealth_embed.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+#     await ctx.send(embed=wealth_embed)
  
-@bot.command()
-async def stats(ctx):
-    menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed)
-    dc_id = ctx.author.id
-    id_ep = f"snowflake2user/{dc_id}"
-    ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
-    userid = ans_id["user_id"]
+# @bot.command()
+# async def stats(ctx):
+#     menu = ViewMenu(ctx, menu_type=ViewMenu.TypeEmbed)
+#     dc_id = ctx.author.id
+#     id_ep = f"snowflake2user/{dc_id}"
+#     ans_id = requests.get(url=key.url+id_ep, headers=headers).json()
+#     userid = ans_id["user_id"]
     
-    embed_time= math.trunc(time.time())
-    endpoint = f"stats/{userid}"
-    ans = requests.get(url=key.url+endpoint, headers=headers).json()
+#     embed_time= math.trunc(time.time())
+#     endpoint = f"stats/{userid}"
+#     ans = requests.get(url=key.url+endpoint, headers=headers).json()
     
-    stats_embed1=discord.Embed(color=0x2c2c34)
-    stats_embed1.set_author(name="Your Game Stats")
-    lenstats = len(ans["data"])
+#     stats_embed1=discord.Embed(color=0x2c2c34)
+#     stats_embed1.set_author(name="Your Game Stats")
+#     lenstats = len(ans["data"])
 
-    n=0
-    while n < 24:
-        stats = ans["data"][n]["amount"]
-        stats_embed1.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
-        n+=1
-    stats_embed1.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
-    menu.add_page(stats_embed1)
+#     n=0
+#     while n < 24:
+#         stats = ans["data"][n]["amount"]
+#         stats_embed1.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
+#         n+=1
+#     stats_embed1.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+#     menu.add_page(stats_embed1)
 
-    stats_embed2=discord.Embed(color=0x2c2c34)    
-    stats_embed2.set_author(name="Your Game Stats")
-    while n < lenstats:
-        stats = ans["data"][n]["amount"]
-        stats_embed2.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
-        n+=1
+#     stats_embed2=discord.Embed(color=0x2c2c34)    
+#     stats_embed2.set_author(name="Your Game Stats")
+#     while n < lenstats:
+#         stats = ans["data"][n]["amount"]
+#         stats_embed2.add_field(name=ans["data"][n]["name"], value=f"{stats:,}", inline=True)
+#         n+=1
         
-    stats_embed2.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
-    menu.add_page(stats_embed2)
+#     stats_embed2.add_field(name="\u200b", value=f"<t:{embed_time}:R>")
+#     menu.add_page(stats_embed2)
     
-    menu.add_button(ViewButton.back())
-    menu.add_button(ViewButton.next())
-    await menu.start()
+#     menu.add_button(ViewButton.back())
+#     menu.add_button(ViewButton.next())
+#     await menu.start()
 
 
 
@@ -295,15 +288,21 @@ async def sendinchannel(interaction: discord.interactions, channel: int, msg: st
     await bot.get_channel(channel).send(msg)
     await interaction.response.send_message("Message sent!")
 
-
 @bot.tree.command()
-@app_commands.describe(endpoint='endpoint here')
-async def debug(interaction: discord.interactions, endpoint: str):
-    ans = requests.get(url=key.url+endpoint, headers=headers).json()
-    with open("debug.txt", "w") as file:
-        textfile.write(json.dumps(ans, sort_keys=True, indent=4))
+# @app_commands.describe(ping='ping to discord')
+async def ping(interaction: discord.interactions):
+    await interaction.response.send_message(f'Pong! {round(bot.latency * 1000)}ms ping')
 
-    with open("debug.txt", "rb") as file:
-        await interaction.response.send_message("Your file is:", file=discord.File(file, "debug.txt"))
+
+
+# @bot.tree.command()
+# @app_commands.describe(endpoint='endpoint here')
+# async def debug(interaction: discord.interactions, endpoint: str):
+#     ans = requests.get(url=key.url+endpoint, headers=headers).json()
+#     with open("debug.txt", "w") as file:
+#         textfile.write(json.dumps(ans, sort_keys=True, indent=4))
+
+#     with open("debug.txt", "rb") as file:
+#         await interaction.response.send_message("Your file is:", file=discord.File(file, "debug.txt"))
 
 bot.run(key.BOT_TOKEN)
